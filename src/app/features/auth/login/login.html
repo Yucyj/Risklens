@@ -1,0 +1,60 @@
+App.html <div style="background-color: #0f172a; color: #f8fafc; min-height: 100vh; padding: 2rem; font-family: system-ui, sans-serif;">
+  
+  <!-- Header Bar -->
+  <header style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.5rem; border-bottom: 1px solid #334155; margin-bottom: 2rem;">
+    <div>
+      <h1 style="margin: 0; font-size: 1.75rem; color: #38bdf8; font-weight: 700;">RiskLens AI Workspace</h1>
+      <p style="margin: 0.25rem 0 0 0; color: #94a3b8; font-size: 0.875rem;">Financial Risk Assessment Engine</p>
+    </div>
+    <div style="background-color: #1e293b; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; border: 1px solid #334155; color: #22c55e; font-weight: bold;">
+      🟢 System Online (30% Complete)
+    </div>
+  </header>
+
+  <!-- Metric Statistics Grid Matrix -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+    
+    <div style="background-color: #1e293b; padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid #38bdf8;">
+      <span style="color: #94a3b8; font-size: 0.875rem; font-weight: 500;">TOTAL ASSET EXPOSURE</span>
+      <h2 style="margin: 0.5rem 0 0 0; font-size: 1.75rem; font-weight: 700;">{{ dashboardData.totalExposure }}</h2>
+    </div>
+
+    <div style="background-color: #1e293b; padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid #f43f5e;">
+      <span style="color: #94a3b8; font-size: 0.875rem; font-weight: 500;">CRITICAL RISK VIOLATIONS</span>
+      <h2 style="margin: 0.5rem 0 0 0; font-size: 1.75rem; font-weight: 700; color: #f43f5e;">{{ dashboardData.highAlertsCount }} High Alerts</h2>
+    </div>
+
+    <div style="background-color: #1e293b; padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid #22c55e;">
+      <span style="color: #94a3b8; font-size: 0.875rem; font-weight: 500;">CAPITAL MITIGATED</span>
+      <h2 style="margin: 0.5rem 0 0 0; font-size: 1.75rem; font-weight: 700; color: #22c55e;">{{ dashboardData.potentialSavings }}</h2>
+    </div>
+
+  </div>
+
+  <!-- Primary Data Panel Area -->
+  <div style="background-color: #1e293b; border-radius: 0.75rem; padding: 1.5rem; border: 1px solid #334155;">
+    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">Live AI Risk Log Ledger</h3>
+    
+    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+      <thead>
+        <tr style="border-bottom: 1px solid #334155; color: #94a3b8;">
+          <th style="padding: 10px 0;">Log ID</th>
+          <th>Asset Name</th>
+          <th>Risk Level</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of riskLogs" style="border-bottom: 1px solid #1e293b;">
+          <td style="padding: 12px 0; color: #38bdf8;">{{ log.id }}</td>
+          <td>{{ log.asset }}</td>
+          <td>
+            <span [style.color]="log.level === 'High' ? '#f43f5e' : '#eab308'">{{ log.level }}</span>
+          </td>
+          <td style="color: #94a3b8;">{{ log.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
