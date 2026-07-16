@@ -1,0 +1,72 @@
+<div class="flex h-screen bg-slate-950 text-slate-100 overflow-hidden font-sans" dir="rtl">
+  
+  <!-- القائمة الجانبية الذكية للـ 11 صفحة -->
+  <aside class="w-64 bg-slate-900 border-l border-slate-800 flex flex-col justify-between p-4 shadow-2xl z-20 flex-shrink-0">
+    <div>
+      <div class="flex items-center space-x-reverse space-x-3 px-2 py-4 border-b border-slate-800">
+        <span class="text-2xl">🧠</span>
+        <h1 class="text-md font-bold tracking-wide text-emerald-400">الوكالة الاستثمارية الذكية</h1>
+      </div>
+      
+      <!-- روابط التنقل السلس للمنصة -->
+      <nav class="mt-5 space-y-1 max-h-[calc(100vh-140px)] overflow-y-auto pr-1">
+        <a routerLink="/dashboard" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">📊</span> <span class="text-xs">لوحة التحكم</span>
+        </a>
+        <a routerLink="/risk-map" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">🗺️</span> <span class="text-xs">مستكشف الفرص والمخاطر</span>
+        </a>
+        <a routerLink="/contracts" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">📜</span> <span class="text-xs">إدارة العقود الاستثمارية</span>
+        </a>
+        <a routerLink="/portfolio" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">💼</span> <span class="text-xs">المحفظة وتوزيع الأصول</span>
+        </a>
+        <a routerLink="/deal-flow" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">🔍</span> <span class="text-xs">تقييم المشاريع والفواتير</span>
+        </a>
+        <a routerLink="/forecasting" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">📈</span> <span class="text-xs">التنبؤ المالي وتطور الثروة</span>
+        </a>
+        <a routerLink="/reports" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">📁</span> <span class="text-xs">التقارير وحماية رأس المال</span>
+        </a>
+        <a routerLink="/alerts" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">⚠️</span> <span class="text-xs">التنبيهات والإنذار المبكر</span>
+        </a>
+        <a routerLink="/integrations" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">🔗</span> <span class="text-xs">ربط الأنظمة والتعلم المستمر</span>
+        </a>
+        <a routerLink="/settings" routerLinkActive="bg-slate-800 text-emerald-400 font-semibold" class="flex items-center space-x-reverse space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
+          <span class="text-sm">⚙️</span> <span class="text-xs">الإعدادات وبيئة الاستثمار</span>
+        </a>
+      </nav>
+    </div>
+    <div class="text-[10px] text-slate-500 border-t border-slate-800 pt-3 text-center">
+      v1.0.0 Platform Core MVP
+    </div>
+  </aside>
+
+  <!-- نافذة عرض محتوى الصفحات الفرعية الديناميكية -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    
+    <!-- الشريط العلوي الموحد (Top Navbar) -->
+    <header class="h-16 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-8 shadow-sm z-10 flex-shrink-0">
+      <div class="flex items-center space-x-reverse space-x-6 text-xs text-slate-300">
+        <div class="font-bold text-slate-100">👤 المستثمر المتصل: عائشة أحمد</div>
+        <div class="text-slate-700">|</div>
+        <div class="text-slate-400 font-medium">📅 {{ clockTime | date:'medium' }}</div>
+      </div>
+      <div class="flex items-center space-x-reverse space-x-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-[10px] font-bold text-emerald-400 tracking-wide">حالة النظام: Connected</span>
+      </div>
+    </header>
+
+    <!-- منطقة حقن وإخراج الصفحات الفرعية الديناميكية -->
+    <main class="flex-1 overflow-x-hidden overflow-y-auto p-8 bg-slate-950">
+      <!-- هنا سيتم عرض المكونات الفرعية مثل لوحة التحكم والـ 11 صفحة تلقائياً -->
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

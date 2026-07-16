@@ -7,18 +7,30 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  templateUrl: './login.html'
 })
 export class LoginComponent {
-  username = ''; password = ''; isArabic = true;
+  email = '';
+  password = '';
 
   constructor(private router: Router) {}
 
-  toggleLang() { this.isArabic = !this.isArabic; }
-
   submitLogin() {
-    // Standard fast instant validation route to impress judges
-    this.router.navigateByUrl('/dashboard/index');
+    // Basic verification for our presentation environment
+    if (this.email === 'aisha@investment.ai' && this.password === 'demo1234') {
+      this.router.navigate(['/dashboard']);
+    } else {
+      alert('الرجاء إدخال بيانات صحيحة أو استخدام زر الحساب التجريبي المخصص للتحكيم.');
+    }
+  }
+
+  launchDemoAccount() {
+    // Instantly fill credentials to showcase fast access mechanics
+    this.email = 'aisha@investment.ai';
+    this.password = 'demo1234';
+    
+    setTimeout(() => {
+      this.submitLogin();
+    }, 400);
   }
 }
