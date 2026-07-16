@@ -1,0 +1,1 @@
+import {C as Cm,a9 as Ks,v as vy,aa as Js}from'./main-IYGGFC6F.js';var s=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=Cm({type:e,selectors:[["app-integrations"]],decls:2,vars:0,template:function(t,m){t&1&&(Ks(0,"p"),vy(1,"integrations works!"),Js());},encapsulation:2})};export{s as Integrations};

@@ -1,0 +1,1 @@
+import {C as Cm,a9 as Ks,v as vy,aa as Js}from'./main-IYGGFC6F.js';var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=Cm({type:t,selectors:[["app-risk-map"]],decls:2,vars:0,template:function(e,m){e&1&&(Ks(0,"p"),vy(1,"risk-map works!"),Js());},encapsulation:2})};export{p as RiskMap};
