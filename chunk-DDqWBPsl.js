@@ -1,1 +1,0 @@
-import {C as Cm,a9 as Ks,v as vy,aa as Js}from'./main-IYGGFC6F.js';var c=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=Cm({type:e,selectors:[["app-contracts"]],decls:2,vars:0,template:function(t,i){t&1&&(Ks(0,"p"),vy(1,"contracts works!"),Js());},encapsulation:2})};export{c as Contracts};
