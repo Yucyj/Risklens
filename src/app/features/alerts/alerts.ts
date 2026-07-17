@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-alerts',
-  imports: [],
-  templateUrl: './alerts.html',
-  styleUrl: './alerts.css',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './alerts.html'
 })
-export class Alerts {}
+export class Alerts {
+  showReasons = true;
+  toggleXAI() { this.showReasons = !this.showReasons; }
+}

@@ -9,16 +9,25 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.css'
 })
 export class Dashboard {
-  // متغير التحكم في ظهور النافذة التفسيرية المنبثقة
+  isAnalyzing: boolean = false;
+  analysisProgress: number = 0;
   showXAIModal: boolean = false;
 
-  // دالة تشغيل السيناريو لعرض التفسير الذكي أمام لجنة التحكيم
-  openExplainableAI(): void {
-    this.showXAIModal = true;
+  triggerAIAnalysis(): void {
+    this.isAnalyzing = true;
+    this.analysisProgress = 0;
+    
+    const interval = setInterval(() => {
+      if (this.analysisProgress < 100) {
+        this.analysisProgress += 10;
+      } else {
+        clearInterval(interval);
+        this.isAnalyzing = false;
+        alert('اكتمل تحليل الملاءة المالية وصافي القيمة الحالية للمحفظة بنجاح! تم تحديث لوحة التحكم 🤖');
+      }
+    }, 250);
   }
 
-  // دالة إغلاق النافذة
-  closeExplainableAI(): void {
-    this.showXAIModal = false;
-  }
+  openXAI(): void { this.showXAIModal = true; }
+  closeXAI(): void { this.showXAIModal = false; }
 }

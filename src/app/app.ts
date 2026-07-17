@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class AppComponent {
-  title = 'financial-hackathon';
+  title = 'RiskLens Amad Hackathon';
 }

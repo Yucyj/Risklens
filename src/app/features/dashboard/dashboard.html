@@ -1,103 +1,102 @@
-<p>dashboard works!</p>
-<div class="space-y-6" dir="rtl text-right">
-  <!-- هيدر الصفحة ومساعد الـ AI -->
-  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
+<div class="space-y-6 text-right font-sans" dir="rtl">
+  
+  <!-- AI Analyzer Status Header Bar -->
+  <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-4">
     <div class="space-y-1">
-      <h2 class="text-xl font-bold text-white">لوحة التحكم الاستثمارية المتوازنة</h2>
-      <p class="text-xs text-slate-400">تحليل فوري لميزان الربحية الاستراتيجية وإدارة مخاطر الأصول المودعة</p>
+      <h2 class="text-xl font-bold text-white">📊 منصة المستشار المالي والعقاري الذكي (Risklens AI Core)</h2>
+      <p class="text-xs text-slate-400">تحليل الملاءة المالية، التدفقات النقدية المتوقعة، وقياس القيمة العادلة للأصول العقارية</p>
     </div>
-    <!-- مستشار الذكاء الاصطناعي الاستباقي -->
-    <div class="flex-1 md:max-w-2xl bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl flex items-start space-x-reverse space-x-3">
-      <span class="text-xl">🤖</span>
-      <p class="text-xs text-emerald-400 leading-relaxed font-medium">
-        <strong>مستشار AI الفوري:</strong> تم رصد محاولة تمويل تقليدي بشروط إذعانية بنسبة خطورة عالية في قطاع التجزئة. نوصي بنقل السيولة فوراً إلى الصندوق العقاري المدرج لحماية ثروتك.
-      </p>
+    <div class="w-full md:w-72 space-y-1.5" *ngIf="isAnalyzing">
+      <div class="flex justify-between text-[11px] font-bold text-emerald-400">
+        <span>جاري تشغيل محرك الفحص الذكي...</span>
+        <span>{{ analysisProgress }}%</span>
+      </div>
+      <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+        <div class="bg-emerald-500 h-full transition-all duration-300" [style.width.%]="analysisProgress"></div>
+      </div>
+    </div>
+    <button *ngIf="!isAnalyzing" (click)="triggerAIAnalysis()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg transition-all">
+      🧠 تشغيل تحليل البيانات الذكي (Run AI Analysis)
+    </button>
+  </div>
+
+  <!-- AI Financial & Property Dashboard Grid Statistics -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+      <span class="text-slate-400 text-xs font-semibold">صحة الملاءة المالية (Financial Health Score)</span>
+      <h3 class="text-2xl font-bold text-emerald-400 mt-2">84% <span class="text-xs text-slate-500">ممتاز</span></h3>
+      <p class="text-[10px] text-slate-500 mt-1">سلوك ادخاري مستقر ومعدل تدفق نقدي آمن</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+      <span class="text-slate-400 text-xs font-semibold">عائد المحفظة العقارية المتوقع</span>
+      <h3 class="text-2xl font-bold text-white mt-2">14.2% <span class="text-xs text-slate-400">IRR</span></h3>
+      <p class="text-[10px] text-slate-500 mt-1">صافي القيمة الحالية (NPV) إيجابية للمشاريع</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg border-b-4 border-b-red-500">
+      <span class="text-slate-400 text-xs font-semibold">احتمالية التعثر (Default Probability)</span>
+      <h3 class="text-2xl font-bold text-red-400 mt-2">4.2% <span class="text-xs text-slate-500">منخفض جداً</span></h3>
+      <p class="text-[10px] text-slate-400 mt-1">تم قياس أقساط التمويل ضد السيولة المتاحة للطوارئ</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg" (click)="openXAI()">
+      <span class="text-slate-400 text-xs font-semibold">عقارات مسعرة بأعلى من قيمتها (Overvalued)</span>
+      <h3 class="text-2xl font-bold text-amber-400 mt-2">3 أصول <span class="text-xs text-slate-500">تنبيه فحص</span></h3>
+      <p class="text-[10px] text-slate-400 mt-1 underline decoration-dotted cursor-pointer">اضغط لعرض الأسباب ومقارنة متوسط السوق 🧠</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+      <span class="text-slate-400 text-xs font-semibold">فرص عقارية موصى بها (High-Yield)</span>
+      <h3 class="text-2xl font-bold text-emerald-400 mt-2">12 فرصة <span class="text-xs text-slate-400">جاهزة</span></h3>
+      <p class="text-[10px] text-slate-500 mt-1">فرص ممتازة تتوافق مع تفضيلات المخاطر المحددة</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+      <span class="text-slate-400 text-xs font-semibold">حالة السيولة النقدية (Liquidity Status)</span>
+      <h3 class="text-2xl font-bold text-white mt-2">2,150,000 <span class="text-xs text-slate-400">SAR</span></h3>
+      <p class="text-[10px] text-slate-500 mt-1">سيولة متوفرة فوراً لتغطية أي خسائر مفاجئة</p>
+    </div>
+
+  </div>
+
+  <!-- AI Investment Insights Dashboard Subpanel Container -->
+  <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+    <h3 class="text-sm font-bold text-white flex items-center gap-2">🧠 مخرجات التحليل الذكي للثروة والأصول (AI Insights)</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+        <span class="text-xs font-bold text-emerald-400">📈 توزيع التدفقات النقدية</span>
+        <p class="text-[11px] text-slate-300 leading-relaxed">القطاع السكني يساهم بـ <strong>45% من استقرار تدفقاتك النقدية</strong> وعقود الإيجار المرفوعة.</p>
+      </div>
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+        <span class="text-xs font-bold text-amber-400">⚠️ تأثير أسعار الفائدة</span>
+        <p class="text-[11px] text-slate-300 leading-relaxed">ارتفاع أسعار الفائدة الحالي <strong>يقلل من جدوى التمويل قصير الأجل بنسبة 15%</strong>.</p>
+      </div>
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+        <span class="text-xs font-bold text-red-400">🚨 التركز الجغرافي</span>
+        <p class="text-[11px] text-slate-300 leading-relaxed">تركز أصولك في منطقة جغرافية واحدة <strong>يرفع نسبة المخاطر العامة للمحفظة الاستثمارية</strong>.</p>
+      </div>
     </div>
   </div>
 
-  <!-- كروت الأداء المالي المتوازن (ميزان الربح والخطر) -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-    <!-- كرت الأرباح -->
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
-      <div class="flex justify-between items-start">
-        <span class="text-slate-400 text-xs font-semibold">صافي الأرباح والعائد (ROI)</span>
-        <span class="bg-emerald-500/10 text-emerald-400 text-[10px] px-2 py-0.5 rounded font-bold">+24.5%</span>
-      </div>
-      <div class="mt-3">
-        <h3 class="text-2xl font-bold text-white tracking-wide">3,450,000 <span class="text-xs text-slate-400">SAR</span></h3>
-        <p class="text-[11px] text-slate-500 mt-1">إجمالي الأرباح الاستثمارية المحققة</p>
-      </div>
-    </div>
-
-    <!-- كرت رأس المال المعرض للمخاطرة -->
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
-      <div class="flex justify-between items-start">
-        <span class="text-slate-400 text-xs font-semibold">رأس المال المعرض للمخاطرة</span>
-        <span class="bg-amber-500/10 text-amber-400 text-[10px] px-2 py-0.5 rounded font-bold">متوسط</span>
-      </div>
-      <div class="mt-3">
-        <h3 class="text-2xl font-bold text-white tracking-wide">850,000 <span class="text-xs text-slate-400">SAR</span></h3>
-        <p class="text-[11px] text-slate-500 mt-1">الأصول تحت المراقبة الحمائية</p>
-      </div>
-    </div>
-
-    <!-- كرت معدل النمو -->
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
-      <div class="flex justify-between items-start">
-        <span class="text-slate-400 text-xs font-semibold">معدل نمو الأصول والثروة</span>
-        <span class="text-emerald-400 text-sm">📈</span>
-      </div>
-      <div class="mt-3">
-        <h3 class="text-2xl font-bold text-white tracking-wide">18.2% <span class="text-xs text-slate-400">سنوياً</span></h3>
-        <p class="text-[11px] text-slate-500 mt-1">تطور الثروة التراكمي الذكي</p>
-      </div>
-    </div>
-
-    <!-- كرت مؤشر الأمان الذكي والـ Explainable AI (اضغط عليه لتشغيل السيناريو المنبثق للتحكيم) -->
-    <div (click)="openExplainableAI()" class="bg-slate-900 border-2 border-red-500/40 hover:border-red-500 cursor-pointer rounded-xl p-5 shadow-lg transition-all relative overflow-hidden group">
-      <div class="absolute inset-0 bg-red-500/[0.02] group-hover:bg-red-500/[0.04] transition-all"></div>
-      <div class="flex justify-between items-start relative z-10">
-        <span class="text-slate-400 text-xs font-semibold">مؤشر أمان المحفظة ضد التعثر</span>
-        <span class="bg-red-500/10 text-red-400 text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">خطر حاد!</span>
-      </div>
-      <div class="mt-3 relative z-10">
-        <h3 class="text-2xl font-bold text-red-400 tracking-wide">91% <span class="text-xs text-slate-400">نسبة تعثر</span></h3>
-        <p class="text-[10px] text-slate-400 mt-1 underline decoration-dotted">اضغط هنا لعرض التفسير الذكي (XAI) 🧠</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- لوحة التفسير التفاعلية وعرض الأسباب (Popup Modal) -->
-  <div *ngIf="showXAIModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn" dir="rtl">
+  <!-- XAI Popup Modal Module Block Frame -->
+  <div *ngIf="showXAIModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 relative">
-      <button (click)="closeExplainableAI()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-lg">✕</button>
-      
+      <button (click)="closeXAI()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-md">✕</button>
       <div class="flex items-center space-x-reverse space-x-3 border-b border-slate-800 pb-3">
         <span class="text-2xl">🧠</span>
         <div>
-          <h4 class="text-md font-bold text-white">نظام التفسير الذكي والتحليل السببي (Explainable AI)</h4>
-          <p class="text-xs text-red-400 font-semibold">خلفيات فك الشفرة لنسبة التعثر البالغة 91%:</p>
+          <h4 class="text-sm font-bold text-white">تحليل ميزان الأسعار والقيمة العادلة للأصول</h4>
+          <p class="text-xs text-amber-400 font-semibold">تفسير الذكاء الاصطناعي للعقارات الثلاثة المسعرة بأعلى من قيمتها:</p>
         </div>
       </div>
-
-      <ul class="space-y-3 pt-2">
-        <li class="flex items-start space-x-reverse space-x-2.5 text-xs text-slate-300 leading-relaxed">
-          <span class="text-red-500 mt-0.5">🚨</span>
-          <span>المشروع المستهدف تأخر في تسليم <strong>4 مشاريع استثمارية سابقة</strong> طبقاً للسجلات والتقارير القانونية المدمجة.</span>
-        </li>
-        <li class="flex items-start space-x-reverse space-x-2.5 text-xs text-slate-300 leading-relaxed">
-          <span class="text-red-500 mt-0.5">🚨</span>
-          <span>قيمة تقييم العقد الاستثماري المطروح حالياً أعلى من متوسط تقييم الأسعار في السوق بـ <strong>19% (تضخم غير مبرر)</strong>.</span>
-        </li>
-        <li class="flex items-start space-x-reverse space-x-2.5 text-xs text-slate-300 leading-relaxed">
-          <span class="text-red-500 mt-0.5">🚨</span>
-          <span>توجد <strong>دفعات مالية ضخمة وجائرة</strong> في بداية بنود العقد تشكل خطورة سيولة حادة وتقيد حماية أملاك المستثمر.</span>
-        </li>
+      <ul class="space-y-2 text-xs text-slate-300 pr-1">
+        <li class="list-disc list-inside">العقار المستهدف الأول يتجاوز متوسط أسعار المتر المربع في المنطقة بـ 19%.</li>
+        <li class="list-disc list-inside">شروط عقد الإيجار الحالي لا تضمن استدامة التدفقات النقدية لأكثر من 12 شهراً.</li>
+        <li class="list-disc list-inside">تراجع القوة الشرائية والطلب في النطاق الجغرافي للعقارات يهدد العائد الداخلي المخطط.</li>
       </ul>
-
-      <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
-        <strong>قرار النظام الحمائي:</strong> تم تجميد التوقيع الرقمي للعقد تلقائياً لحين مراجعة البند الجزائي والشروط الإذعانية من قبل قسم إدارة المخاطر.
-      </div>
     </div>
   </div>
+
 </div>

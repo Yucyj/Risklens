@@ -7,4 +7,4 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './deal-flow.html'
 })
-export class DealFlow { }
+export class DealFlow {}

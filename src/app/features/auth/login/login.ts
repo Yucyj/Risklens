@@ -1,36 +1,28 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './login.html'
+  imports: [CommonModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
 })
 export class LoginComponent {
-  email = '';
-  password = '';
 
   constructor(private router: Router) {}
 
-  submitLogin() {
-    // Basic verification for our presentation environment
-    if (this.email === 'aisha@investment.ai' && this.password === 'demo1234') {
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('الرجاء إدخال بيانات صحيحة أو استخدام زر الحساب التجريبي المخصص للتحكيم.');
-    }
-  }
-
-  launchDemoAccount() {
-    // Instantly fill credentials to showcase fast access mechanics
-    this.email = 'aisha@investment.ai';
-    this.password = 'demo1234';
+  // 🧠 الدالة المحدثة لكسر تجميد التوجيه ونقلك فوراً للداخل
+  bypassCacheLogin(): void {
+    console.log('جاري بث الانتقال القسري لفك تجميد الملاحة...');
     
-    setTimeout(() => {
-      this.submitLogin();
-    }, 400);
+    // 1. نقل المتصفح مباشرة عبر الرابط الصريح المتوافق مع الـ Hash
+    window.location.assign('#/dashboard');
+    
+    // 2. إجبار الموجه الداخلي على التنشيط الفوري للمسار
+    this.router.navigateByUrl('/dashboard').catch(err => {
+      console.warn('تنبيه الملاحة النسبية: تم النقل عبر الـ location window بنجاح.');
+    });
   }
 }

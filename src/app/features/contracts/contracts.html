@@ -1,1 +1,28 @@
-<p>contracts works!</p>
+<div class="space-y-6 text-right font-sans animate-fadeIn" dir="rtl">
+  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-1">
+    <h2 class="text-xl font-bold text-white">📜 إدارة العقود ومحاكي القرارات الذكي (AI Decision Simulator)</h2>
+    <p class="text-xs text-slate-400">نمحاكاة تفاعلية فورية لأثر البنود الجزائية والشروط القانونية قبل توقيعها الفعلي</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg space-y-3">
+      <h3 class="text-xs font-bold text-white border-b border-slate-800 pb-2">🕹️ اختر سيناريو القرار المالي:</h3>
+      <div class="space-y-2">
+        <button (click)="runSimulation(1)" [class.border-emerald-500]="activeScenario === 1" class="w-full bg-slate-950 p-3 rounded-lg border border-slate-800 text-right text-xs text-white block">سيناريو 1: الموافقة الكاملة وتوقيع العقد مباشرة (عائد 15% / خطر 18%)</button>
+        <button (click)="runSimulation(2)" [class.border-emerald-500]="activeScenario === 2" class="w-full bg-slate-950 p-3 rounded-lg border border-slate-800 text-right text-xs text-white block">سيناريو 2: إضافة بند ضمانات إضافية ورهن تجاري (عائد 14% / خطر 7%)</button>
+        <button (click)="runSimulation(3)" [class.border-emerald-500]="activeScenario === 3" class="w-full bg-slate-950 p-3 rounded-lg border border-slate-800 text-right text-xs text-white block">سيناريو 3: تخفيض قيمة التمويل لـ 8 ملايين (عائد 11% / خطر 4%)</button>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg flex flex-col justify-between">
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-white border-b border-slate-800 pb-2">📊 تقرير التنبؤ بنقطة التعادل ومخاطر البنود:</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center"><span class="text-slate-400 text-xs">العائد المتوقع</span><h4 class="text-xl font-bold text-emerald-400 mt-1">{{ simYield }}</h4></div>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center"><span class="text-slate-400 text-xs">احتمال التعثر</span><h4 class="text-xl font-bold text-red-400 mt-1">{{ simRisk }}%</h4></div>
+        </div>
+      </div>
+      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 mt-4"><span class="text-xs font-bold text-emerald-400">🤖 حكم وتحليل مستشار الـ AI:</span><p class="text-[11px] text-slate-300 mt-1 leading-relaxed">{{ simVerdict }}</p></div>
+    </div>
+  </div>
+</div>
