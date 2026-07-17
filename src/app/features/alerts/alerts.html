@@ -1,29 +1,55 @@
 <div class="space-y-6 text-right font-sans animate-fadeIn" dir="rtl">
-  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
-    <h2 class="text-xl font-bold text-white">⚠️ التنبيهات ومركز الإنذار المبكر (Early Warning Hub)</h2>
-    <p class="text-xs text-slate-400">رصد فوري للعمليات الحرجة وتفسير الأسباب الكامنة خلف قرارات حظر العقود</p>
+  
+  <!-- Page Header -->
+  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-1">
+    <h2 class="text-xl font-black text-white">⚠️ مركز الإنذار المبكر (Early Warning Center)</h2>
+    <p class="text-xs text-slate-400">تنبيهات استباقية للأصول أو التزامات التمويل التي تحتاج تدخلًا سريعًا لحماية السيولة النقدية</p>
   </div>
 
-  <!-- ميزة التفسير الشفاف XAI -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg space-y-3">
-      <span class="text-xs font-bold text-red-400 block">❌ توصية النظام الحمائية:</span>
-      <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-        <p class="text-xs text-white font-bold">تجنب الاستثمار في العقار (أ) بقيمته السعرية الحالية المطروحة.</p>
-      </div>
-      <button (click)="toggleXAI()" class="w-full bg-slate-950 hover:bg-slate-800 text-center border border-slate-800 py-2 rounded-lg text-xs text-slate-300 font-bold transition-all">
-        {{ showReasons ? 'إخفاء أسباب التحليل الذكي' : 'لماذا؟ اضغط لعرض الأسباب (Why?) 🧠' }}
-      </button>
+  <!-- Feature 10: 14-Day Proactive Alerts Timeline -->
+  <div class="space-y-4">
+    <div class="flex items-center space-x-reverse space-x-2 text-slate-400 font-bold text-xs tracking-wider uppercase">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+      <span>مؤشرات المخاطر الطارئة خلال الـ 14 يوماً القادمة</span>
     </div>
 
-    <!-- بطاقة الأسباب المفسرة الشفافة للتحكيم -->
-    <div class="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg flex flex-col justify-center" *ngIf="showReasons">
-      <h4 class="text-xs font-bold text-red-400 mb-3">🧠 الأسباب المفككة بواسطة الـ Explainable AI (XAI):</h4>
-      <ul class="space-y-2 text-xs text-slate-300 leading-relaxed pr-2">
-        <li class="list-disc list-inside">سعر المتر المقترح أعلى بـ <strong class="text-red-400">18%</strong> من متوسط الأسعار الحالية في المنطقة الجغرافية المستهدفة.</li>
-        <li class="list-disc list-inside">معدل نمو الطلب السكني على عقود الإيجار في هذا الحي يشهد تراجعاً طفيفاً بنسبة <strong class="text-amber-400">3%</strong> طبقاً للمؤشرات.</li>
-        <li class="list-disc list-inside">تكلفة الصيانة المتوقعة للعقار مرتفعة جداً نظراً لعمر المبنى الهيكلي البالغ <strong class="text-white">12 سنة</strong>.</li>
+    <div class="space-y-3">
+      <!-- Alert 1 -->
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-r-4 border-r-amber-500">
+        <div class="space-y-1">
+          <h4 class="text-xs font-bold text-white">اقتراب موعد انتهاء عقد إيجاري</h4>
+          <p class="text-[11px] text-slate-400 leading-relaxed">المستأجر في العقار (ب) يقترب موعد تجديد عقده النهائي ولم يبدِ رغبته بالاستمرار حتى الآن عبر المنصة.</p>
+        </div>
+        <span class="text-[10px] font-black bg-amber-500/10 text-amber-400 px-2 py-1 rounded whitespace-nowrap">مخاطر شغور الأصول</span>
+      </div>
+
+      <!-- Alert 2 -->
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-r-4 border-r-red-500">
+        <div class="space-y-1">
+          <h4 class="text-xs font-bold text-white">مخاطر تقلبات الفائدة والسيولة</h4>
+          <p class="text-[11px] text-slate-400 leading-relaxed">مؤشر التضخم الحالي قد يؤثر على تكلفة تمويلك المتغير المفتوح، ينصح النظام بمراجعة هيكلة السداد لحماية السلوك الادخاري.</p>
+        </div>
+        <span class="text-[10px] font-black bg-red-500/10 text-red-400 px-2 py-1 rounded whitespace-nowrap">مخاطر تمويلية حادة</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 4 Reminder block already built into page for XAI toggle -->
+  <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg space-y-3 mt-4">
+    <div class="flex justify-between items-center">
+      <span class="text-xs font-bold text-red-400">توصية النظام الحمائية النشطة:</span>
+      <button (click)="toggleXAI()" class="bg-slate-950 hover:bg-slate-800 border border-slate-800 px-3 py-1.5 rounded-lg text-[10px] text-slate-300 font-bold transition-all cursor-pointer">
+        {{ showReasons ? 'إخفاء أسباب التحليل الذكي' : 'عرض تحليل الأسباب بوضوح (XAI)' }}
+      </button>
+    </div>
+    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800" *ngIf="showReasons">
+      <h4 class="text-xs font-bold text-slate-200 mb-2">الشفافية في اتخاذ القرار المالي (Explainable AI):</h4>
+      <ul class="space-y-2 text-[11px] text-slate-400 leading-relaxed">
+        <li>• سعر المتر المقترح أعلى بـ 18% من متوسط المنطقة الجغرافية المستهدفة.</li>
+        <li>• معدل نمو الطلب السكني في هذا الحي يشهد تراجعاً طفيفاً بنسبة 3%.</li>
+        <li>• تكلفة الصيانة المتوقعة للعقار مرتفعة نظراً لعمر المبنى الهيكلي (12 سنة).</li>
       </ul>
     </div>
   </div>
+
 </div>

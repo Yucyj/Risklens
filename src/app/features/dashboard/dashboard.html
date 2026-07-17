@@ -3,8 +3,8 @@
   <!-- AI Analyzer Status Header Bar -->
   <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-4">
     <div class="space-y-1">
-      <h2 class="text-xl font-bold text-white">📊 منصة المستشار المالي والعقاري الذكي (Risklens AI Core)</h2>
-      <p class="text-xs text-slate-400">تحليل الملاءة المالية، التدفقات النقدية المتوقعة، وقياس القيمة العادلة للأصول العقارية</p>
+      <h2 class="text-xl font-bold text-white"> RiskLens</h2>
+      <p class="text-xs text-slate-400">مستشارك المالي الذكي لتحليل الثروة المالية، فياس المخاطر المستبقة والإقتراح الاستثماري</p>
     </div>
     <div class="w-full md:w-72 space-y-1.5" *ngIf="isAnalyzing">
       <div class="flex justify-between text-[11px] font-bold text-emerald-400">
@@ -24,7 +24,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     
     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
-      <span class="text-slate-400 text-xs font-semibold">صحة الملاءة المالية (Financial Health Score)</span>
+      <span class="text-slate-400 text-xs font-semibold">مؤشرالصحةالمالية (Financial Health Score)</span>
       <h3 class="text-2xl font-bold text-emerald-400 mt-2">84% <span class="text-xs text-slate-500">ممتاز</span></h3>
       <p class="text-[10px] text-slate-500 mt-1">سلوك ادخاري مستقر ومعدل تدفق نقدي آمن</p>
     </div>
@@ -44,11 +44,11 @@
     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg" (click)="openXAI()">
       <span class="text-slate-400 text-xs font-semibold">عقارات مسعرة بأعلى من قيمتها (Overvalued)</span>
       <h3 class="text-2xl font-bold text-amber-400 mt-2">3 أصول <span class="text-xs text-slate-500">تنبيه فحص</span></h3>
-      <p class="text-[10px] text-slate-400 mt-1 underline decoration-dotted cursor-pointer">اضغط لعرض الأسباب ومقارنة متوسط السوق 🧠</p>
+      <p class="text-[10px] text-slate-400 mt-1 underline decoration-dotted cursor-pointer">اضغط لعرض الأسباب ومقارنة متوسط السوق </p>
     </div>
 
     <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
-      <span class="text-slate-400 text-xs font-semibold">فرص عقارية موصى بها (High-Yield)</span>
+      <span class="text-slate-400 text-xs font-semibold">فرص إستثمارية موصى بها (High-Yield)</span>
       <h3 class="text-2xl font-bold text-emerald-400 mt-2">12 فرصة <span class="text-xs text-slate-400">جاهزة</span></h3>
       <p class="text-[10px] text-slate-500 mt-1">فرص ممتازة تتوافق مع تفضيلات المخاطر المحددة</p>
     </div>
@@ -63,7 +63,7 @@
 
   <!-- AI Investment Insights Dashboard Subpanel Container -->
   <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
-    <h3 class="text-sm font-bold text-white flex items-center gap-2">🧠 مخرجات التحليل الذكي للثروة والأصول (AI Insights)</h3>
+    <h3 class="text-sm font-bold text-white flex items-center gap-2"> مخرجات التحليل الذكي للثروة والأصول (AI Insights)</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
         <span class="text-xs font-bold text-emerald-400">📈 توزيع التدفقات النقدية</span>
@@ -74,7 +74,7 @@
         <p class="text-[11px] text-slate-300 leading-relaxed">ارتفاع أسعار الفائدة الحالي <strong>يقلل من جدوى التمويل قصير الأجل بنسبة 15%</strong>.</p>
       </div>
       <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
-        <span class="text-xs font-bold text-red-400">🚨 التركز الجغرافي</span>
+        <span class="text-xs font-bold text-red-400"> التركز الجغرافي</span>
         <p class="text-[11px] text-slate-300 leading-relaxed">تركز أصولك في منطقة جغرافية واحدة <strong>يرفع نسبة المخاطر العامة للمحفظة الاستثمارية</strong>.</p>
       </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 relative">
       <button (click)="closeXAI()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-md">✕</button>
       <div class="flex items-center space-x-reverse space-x-3 border-b border-slate-800 pb-3">
-        <span class="text-2xl">🧠</span>
+        <span class="text-2xl"></span>
         <div>
           <h4 class="text-sm font-bold text-white">تحليل ميزان الأسعار والقيمة العادلة للأصول</h4>
           <p class="text-xs text-amber-400 font-semibold">تفسير الذكاء الاصطناعي للعقارات الثلاثة المسعرة بأعلى من قيمتها:</p>

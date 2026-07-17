@@ -1,23 +1,45 @@
 <div class="space-y-6 text-right font-sans animate-fadeIn" dir="rtl">
-  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
-    <h2 class="text-xl font-bold text-white">🔎 تقييم جدوى المشاريع والفواتير (Deal Flow Audit)</h2>
-    <p class="text-xs text-slate-400">تحليل كشوفات فواتير الصيانة ودراسات الجدوى المرفوعة لمطابقتها مع البيانات التاريخية لـ SAP</p>
+  
+  <!-- Page Header -->
+  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-1">
+    <h2 class="text-xl font-black text-white">🔎 تقييم جدوى المشاريع والفواتير (Deal Flow Audit)</h2>
+    <p class="text-xs text-slate-400">تحليل كشوفات فواتير الصيانة ودراسات الجدوى المرفوعة ومطابقتها مع البيانات التاريخية لـ SAP</p>
   </div>
 
-  <!-- ميزة رصد الشذوذ المالي (Anomaly Detection) -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
-      <span class="text-xs font-bold text-emerald-400 block">🟢 فرصة عقارية استثنائية مكتشفة</span>
-      <div class="bg-slate-950 p-4 rounded-lg border border-slate-800">
-        <p class="text-xs text-slate-200 font-medium">"تم رصد عقار معروض بسعر يقل بـ <strong class="text-emerald-400">30%</strong> عن القيمة السوقية للمنطقة الحالية (قد تكون فرصة ممتازة للشراء الفوري أو عقاراً به عيوب قانونية جاري فحصها)."</p>
-      </div>
+  <!-- Feature 9: Smart Anomaly & Deal Detection Cards -->
+  <div class="space-y-3">
+    <div class="flex items-center space-x-reverse space-x-2 text-slate-400 font-bold text-xs tracking-wider uppercase">
+      <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+      <span>نظام رصد الشذوذ المالي والعمليات الخارجة عن المألوف (Smart Anomaly & Deal Detection)</span>
     </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Opportunity Anomaly -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-emerald-400">رصد فرصة سعرية غير طبيعية</span>
+          <span class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-mono">نمط إيجابي</span>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800">
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "تم رصد عقار معروض بسعر يقل بـ <span class="text-emerald-400 font-bold">30%</span> عن القيمة السوقية للمنطقة (تحليل المحرك: قد تكون فرصة ممتازة للشراء أو عقاراً به عيوب قانونية جاري فحص سجلاتها)."
+          </p>
+        </div>
+      </div>
 
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3 border-r-4 border-r-red-500">
-      <span class="text-xs font-bold text-red-400 block">🚨 كشف مؤشر تلاعب مالي أو عيوب صيانة</span>
-      <div class="bg-slate-950 p-4 rounded-lg border border-slate-800">
-        <p class="text-xs text-slate-200 font-medium">"تحذير: تم رصد <strong class="text-red-400">تكرار دفعات صيانة غير مجدولة</strong> وفواتير متطابقة لنفس العقار خلال فترة زمنية قصيرة جداً (شبهة احتيال مالي)."</p>
+      <!-- Risk Anomaly -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3 border-r-4 border-r-red-500">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-red-400">رصد نمط تشغيلي مشبوه</span>
+          <span class="text-[10px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded font-mono">تنبيه خطر</span>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800">
+          <p class="text-xs text-slate-300 leading-relaxed">
+            "تحذير: تم رصد <span class="text-red-400 font-bold">تكرار دفعات صيانة غير مجدولة</span> في نفس العقار خلال فترة زمنية قصيرة (تحليل المحرك: شبهة احتيال مالي أو تدهور متسارع في كفاءة الأصل الهيكلية)."
+          </p>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
